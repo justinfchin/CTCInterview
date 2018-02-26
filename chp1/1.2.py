@@ -1,4 +1,4 @@
-# 1.2 - Check Permission:
+# 1.2 - Check Permutation:
 
 task = "TASK: Determine if 2 strings are permutations of one another\n"
 
@@ -6,21 +6,38 @@ task = "TASK: Determine if 2 strings are permutations of one another\n"
 
 '''
 
-def checkPermission(str1, str2):
-    '''
-    Precondition:
+def checkPermutation(str1, str2):
+    ''' Check is strings are permutations of one another
+
+    Args:
         str1, str2: strings
-    Postcondition:
-        Returns : boolean
-            true. if they are permutations
-            false, otherwise
+    Returns:
+        boolean; True if they are permutations, else False
     '''
+    # Create a Dictionary
+    temp = {}
 
-return False
+    # Population Dictionary with str1
+    for i in str1:
+        if i in temp:
+            temp[i] += 1
+        else:
+            temp[i] = 1
 
+    # Check str2 in str1
+    for i in str2:
+        if i in temp:
+            temp[i] -= 1
+        else:
+            return False
 
-def main():
-    print(task)
+    # Make sure all values are zero
+    for value in temp.values():
+        if value != 0:
+            return False
+    
+    return True
 
 if __name__ == '__main__':
-    main()
+    print(checkPermutation('god','dog'))
+    print(checkPermutation('godd','dog'))

@@ -8,6 +8,11 @@
     - Good idea to ask if input is ASCII or Unicode.
     - Idea 1: 
         - loop through all the letters checking it against each other
+        - O(n^2)
+    - Idea 2:
+        - sort the string then check for identical neighbors
+    - Idea 3:
+        - 
  - [1.2 - Check Permutation](https://github.com/justinfchin/CTCInterview/blob/master/chp1/1.2.py)
     - *TASK:* Given 2 strings, check if one is a permutation of the other.  
     - 
